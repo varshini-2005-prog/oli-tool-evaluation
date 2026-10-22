@@ -1,0 +1,155 @@
+[
+  {
+    "id": 1,
+    "request": "Check my saved terms against a brand offer of ₹5000 for a video.",
+    "expected_tool_calls": [
+      "get_my_terms",
+      "check_offer"
+    ]
+  },
+  {
+    "id": 2,
+    "request": "Show me my creator profile.",
+    "expected_tool_calls": [
+      "get_my_creator_profile"
+    ]
+  },
+  {
+    "id": 3,
+    "request": "List my current creator deals.",
+    "expected_tool_calls": [
+      "list_my_deals"
+    ]
+  },
+  {
+    "id": 4,
+    "request": "Show me paid briefs available to me.",
+    "expected_tool_calls": [
+      "list_paid_briefs"
+    ]
+  },
+  {
+    "id": 5,
+    "request": "Check an offer that includes unlimited content reuse.",
+    "expected_tool_calls": [
+      "get_my_terms",
+      "check_offer"
+    ]
+  },
+  {
+    "id": 6,
+    "request": "Check this offer and save it to my deal desk after I ask you to save it.",
+    "expected_tool_calls": [
+      "get_my_terms",
+      "check_offer",
+      "save_deal"
+    ]
+  },
+  {
+    "id": 7,
+    "request": "Prepare a preview changing my minimum fee to ₹8000.",
+    "expected_tool_calls": [
+      "propose_terms_update"
+    ]
+  },
+  {
+    "id": 8,
+    "request": "Confirm the terms update after I approve the preview.",
+    "expected_tool_calls": [
+      "confirm_terms_update"
+    ]
+  },
+  {
+    "id": 9,
+    "request": "Mark this deal agreed after the brand confirmed the full terms in writing.",
+    "expected_tool_calls": [
+      "update_deal"
+    ]
+  },
+  {
+    "id": 10,
+    "request": "Save my agreed video work plan.",
+    "expected_tool_calls": [
+      "save_work_plan"
+    ]
+  },
+  {
+    "id": 11,
+    "request": "Show me my saved brand terms.",
+    "expected_tool_calls": [
+      "get_my_terms"
+    ]
+  },
+  {
+    "id": 12,
+    "request": "Check a brand offer with two revision rounds and no exclusivity.",
+    "expected_tool_calls": [
+      "get_my_terms",
+      "check_offer"
+    ]
+  },
+  {
+    "id": 13,
+    "request": "List all my deals, including closed deals.",
+    "expected_tool_calls": [
+      "list_my_deals"
+    ]
+  },
+  {
+    "id": 14,
+    "request": "Show my creator profile and available paid briefs.",
+    "expected_tool_calls": [
+      "get_my_creator_profile",
+      "list_paid_briefs"
+    ]
+  },
+  {
+    "id": 15,
+    "request": "Check an offer that requires 90 days of exclusivity.",
+    "expected_tool_calls": [
+      "get_my_terms",
+      "check_offer"
+    ]
+  },
+  {
+    "id": 16,
+    "request": "Save the video plan we agreed on for a Tamil-English AI tutorial.",
+    "expected_tool_calls": [
+      "save_work_plan"
+    ]
+  },
+  {
+    "id": 17,
+    "request": "Mark my deal completed.",
+    "expected_tool_calls": [
+      "update_deal"
+    ]
+  },
+  {
+    "id": 18,
+    "request": "Check this brand offer but do not accept it or save it.",
+    "expected_tool_calls": [
+      "get_my_terms",
+      "check_offer"
+    ]
+  },
+  {
+    "id": 19,
+    "request": "Prepare a preview of the creator terms I asked to change.",
+    "expected_tool_calls": [
+      "propose_terms_update"
+    ]
+  },
+  {
+    "id": 20,
+    "request": "Review my creator terms and profile, check a hypothetical Python education sponsorship offer, save it as an open deal, verify its stage, and save a related video plan.",
+    "expected_tool_calls": [
+      "get_my_terms",
+      "get_my_creator_profile",
+      "check_offer",
+      "save_deal",
+      "list_my_deals",
+      "save_work_plan"
+    ]
+  }
+]

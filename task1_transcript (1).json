@@ -1,0 +1,13 @@
+[
+  {
+    "id": 20,
+    "actual_tool_calls": [
+      "get_my_terms",
+      "get_my_creator_profile",
+      "check_offer",
+      "save_deal",
+      "list_my_deals",
+      "save_work_plan"
+    ]
+  }
+]
