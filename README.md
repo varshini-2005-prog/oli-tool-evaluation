@@ -1,32 +1,50 @@
-# Oli Tool Evaluation
+# Creator Tool-Call Evaluation
 
-This project evaluates whether an AI assistant selects appropriate tools for realistic creator requests.
+## Overview
+This project evaluates whether an AI assistant calls the expected tools when handling creator-related requests.
 
-## Project goals
-- Create 20 realistic creator requests.
-- Define expected tool calls for each request.
-- Score assistant tool-call transcripts using Python.
-- Report correct, missing, and unexpected tool calls.
+It contains 20 realistic creator requests, a Python evaluation script, and a real Task 1 transcript.
 
-## Evaluation method
-The scoring script compares expected tool calls with actual tool calls in a transcript.
+## Project Files
+- `evaluate.py` — Evaluates expected and actual tool calls.
+- `test_cases.json` — Contains the test cases and expected tool calls.
+- `task1_transcript.json` — Contains the real transcript used for evaluation.
+- `sample_transcript.json` — Provides a sample transcript for testing.
+
+## Evaluation Metrics
+- **Precision:** Proportion of actual tool calls that were expected.
+- **Recall:** Proportion of expected tool calls that were made.
+- **Missing calls:** Expected calls that were not made.
+- **Unexpected calls:** Calls that were not expected.
+
+Cases without a matching transcript are marked `NOT EVALUATED`.
+
+## How to Run
+
+Make sure Python is installed and all required JSON files are in the same directory.
+
+```bash
+python evaluate.py
+```
+
+## Results
+
+The latest local evaluation reported:
+
+- Total test cases: 20
+- Cases evaluated: 1
+- Cases not evaluated: 19
+- Cases passed: 1/1
+- Correct calls: 6
+- Missing calls: 0
+- Unexpected calls: 0
+- Precision: 1.00
+- Recall: 1.00
+
+## Findings
+The available real transcript matched all six expected tool calls. The evaluated case passed with no missing or unexpected calls.
+
+The other 19 cases were marked `NOT EVALUATED` because matching transcripts were unavailable.
 
 ## Limitations
-Results depend on the accuracy of the expected tool calls and the availability of a genuine transcript. Sample data will be labelled clearly and will not be presented as a real Oli transcript.
-
-## What it found
-
-### Initial sample run
-
-The evaluator ran successfully against a sample transcript.
-
-- Test cases defined: 20
-- Sample cases with recorded tool calls: 3
-- Cases passed: 2/20
-- Correct tool calls: 3
-- Missing expected tool calls: 25
-- Unexpected tool calls: 0
-
-The first two cases passed. The third case failed because the sample transcript did not contain the expected `list_my_deals` call. The remaining cases also lacked recorded calls.
-
-**Limitation:** This is a plumbing test using sample data, not a measurement of Oli's real performance. A genuine Task 1 transcript must be evaluated before drawing conclusions about the assistant.
+Only one of the 20 test cases was evaluated against a matching real transcript. Additional transcripts are required to assess the assistant's tool-selection performance across the full test set.
