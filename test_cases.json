@@ -1,0 +1,103 @@
+
+[
+  {
+    "id": 1,
+    "request": "A brand offers me ₹5000 for one Instagram video. Check whether it fits my saved terms.",
+    "expected_tool_calls": ["get_my_terms", "check_offer"]
+  },
+  {
+    "id": 2,
+    "request": "Show me my creator profile and the languages I teach in.",
+    "expected_tool_calls": ["get_my_creator_profile"]
+  },
+  {
+    "id": 3,
+    "request": "List my current brand deals.",
+    "expected_tool_calls": ["list_my_deals"]
+  },
+  {
+    "id": 4,
+    "request": "Find paid briefs that match my languages.",
+    "expected_tool_calls": ["list_paid_briefs"]
+  },
+  {
+    "id": 5,
+    "request": "A brand wants unlimited reuse of my video. Compare it with my saved terms.",
+    "expected_tool_calls": ["get_my_terms", "check_offer"]
+  },
+  {
+    "id": 6,
+    "request": "Save this offer from a brand after checking it against my terms.",
+    "expected_tool_calls": ["get_my_terms", "check_offer", "save_deal"]
+  },
+  {
+    "id": 7,
+    "request": "Change my minimum fee to ₹8000 because I want that amount.",
+    "expected_tool_calls": ["propose_terms_update"]
+  },
+  {
+    "id": 8,
+    "request": "Apply the terms change preview I explicitly approved.",
+    "expected_tool_calls": ["confirm_terms_update"]
+  },
+  {
+    "id": 9,
+    "request": "Mark deal D123 as agreed; the brand sent written confirmation and here is the agreement summary.",
+    "expected_tool_calls": ["update_deal"]
+  },
+  {
+    "id": 10,
+    "request": "Create a work plan for my five-minute beginner Python AI tutorial.",
+    "expected_tool_calls": ["save_work_plan"]
+  },
+  {
+    "id": 11,
+    "request": "Show my saved terms before I negotiate with a sponsor.",
+    "expected_tool_calls": ["get_my_terms"]
+  },
+  {
+    "id": 12,
+    "request": "Check an offer for a tutorial with two revision rounds and no exclusivity.",
+    "expected_tool_calls": ["get_my_terms", "check_offer"]
+  },
+  {
+    "id": 13,
+    "request": "List my deals, including closed deals.",
+    "expected_tool_calls": ["list_my_deals"]
+  },
+  {
+    "id": 14,
+    "request": "Show paid briefs suitable for my creator profile.",
+    "expected_tool_calls": ["get_my_creator_profile", "list_paid_briefs"]
+  },
+  {
+    "id": 15,
+    "request": "A brand wants 90 days of exclusive rights. Check my terms before I reply.",
+    "expected_tool_calls": ["get_my_terms", "check_offer"]
+  },
+  {
+    "id": 16,
+    "request": "Draft a shoot plan for a Tamil-English AI tutorial with a deadline next Friday.",
+    "expected_tool_calls": ["save_work_plan"]
+  },
+  {
+    "id": 17,
+    "request": "Change deal D456 to completed after I confirm the work is finished.",
+    "expected_tool_calls": ["update_deal"]
+  },
+  {
+    "id": 18,
+    "request": "Tell me whether this brand offer fits my terms; do not accept it for me.",
+    "expected_tool_calls": ["get_my_terms", "check_offer"]
+  },
+  {
+    "id": 19,
+    "request": "I want to update my saved deliverable preferences. Show me the proposed change before applying it.",
+    "expected_tool_calls": ["propose_terms_update"]
+  },
+  {
+    "id": 20,
+    "request": "Show my creator profile without changing any saved information.",
+    "expected_tool_calls": ["get_my_creator_profile"]
+  }
+]
