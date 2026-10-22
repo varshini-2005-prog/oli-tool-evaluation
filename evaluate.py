@@ -5,7 +5,6 @@ from pathlib import Path
 
 
 def score_case(expected, actual):
-    """Compare expected and actual tool calls for one request."""
     expected = set(expected)
     actual = set(actual)
 
@@ -40,12 +39,8 @@ def main():
     with test_file.open(encoding="utf-8") as file:
         test_cases = json.load(file)
 
-    # Supply actual tool calls as a JSON file path:
-    # python evaluate.py actual_transcript.json
     if len(sys.argv) < 2:
-        print("Usage: python evaluate.py actual_transcript.json")
-        print("Each transcript entry needs an id and actual_tool_calls.")
-        print("Example: {\"id\": 1, \"actual_tool_calls\": [\"check_offer\"]}")
+        print("Usage: python evaluate.py task1_transcript.json")
         sys.exit(0)
 
     transcript_path = Path(sys.argv[1])
@@ -63,29 +58,44 @@ def main():
     }
 
     passed_count = 0
+    evaluated_count = 0
     total_correct = 0
     total_missing = 0
     total_unexpected = 0
 
     for case in test_cases:
         case_id = str(case["id"])
-        actual = actual_by_id.get(case_id, [])
-        result = score_case(case["expected_tool_calls"], actual)
 
+        # No real transcript for this request: do not score it.
+        if case_id not in actual_by_id:
+            print(f"\nCase {case_id}: NOT EVALUATED")
+            print("  Reason: No matching transcript entry.")
+            continue
+
+        result = score_case(
+            case["expected_tool_calls"],
+            actual_by_id[case_id]
+        )
+
+        evaluated_count += 1
         passed_count += int(result["passed"])
         total_correct += len(result["correct"])
         total_missing += len(result["missing"])
         total_unexpected += len(result["unexpected"])
 
-        print(f"\nCase {case_id}: {'PASS' if result['passed'] else 'FAIL'}")
-        print(f"  Correct: {result['correct']}")
-        print(f"  Missing: {result['missing']}")
-        print(f"  Unexpected: {result['unexpected']}")
+        status = "PASS" if result["passed"] else "FAIL"
+        print(f"\nCase {case_id}: {status}")
+        print("  Correct:", result["correct"])
+        print("  Missing:", result["missing"])
+        print("  Unexpected:", result["unexpected"])
         print(f"  Precision: {result['precision']:.2f}")
         print(f"  Recall: {result['recall']:.2f}")
 
     print("\n=== SUMMARY ===")
-    print(f"Cases passed: {passed_count}/{len(test_cases)}")
+    print(f"Cases in test set: {len(test_cases)}")
+    print(f"Cases evaluated: {evaluated_count}")
+    print(f"Cases not evaluated: {len(test_cases) - evaluated_count}")
+    print(f"Cases passed: {passed_count}/{evaluated_count}")
     print(f"Correct calls: {total_correct}")
     print(f"Missing calls: {total_missing}")
     print(f"Unexpected calls: {total_unexpected}")
